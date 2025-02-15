@@ -66,11 +66,11 @@ void myMemmove(char s[], int vt, int k)
 	}
 }
 
-void DemTieng(char s1[])
+void countCharacter(char s1[])
 {
 	
 }
-void xoa(char s[], int k) {
+void delete(char s[], int k) {
 	int n = myStrlen(s, 0);
 	for (int i = k; i < n - 1; i++) {
 		s[i] = s[i + 1];
@@ -86,7 +86,7 @@ int main()
 	
 	int q = myStrlen(s1, 0);
 	for (int i = 0; i < myStrlen(s1, 0); i++) {
-		if (s1[i] == '.' || s1[i] == ',') xoa(s1, i); 
+		if (s1[i] == '.' || s1[i] == ',') delete(s1, i); 
 	}
 	for (int i = 0; i < myStrlen(s1, 0); i++) {
 		s1[i] = tolower(s1[i]);
