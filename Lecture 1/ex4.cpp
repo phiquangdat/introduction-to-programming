@@ -4,7 +4,7 @@ using namespace std;
 int main(){
     //Cau a
     int x;
-    cout<<"Nhap x: "<<endl;
+    cout<<"Enter x: "<<endl;
     cin>>x;
     cout<<"y1= "<<4*((x*x)+10*x*sqrt(x)+3*x+1)<<endl;
 

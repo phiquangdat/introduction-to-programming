@@ -1,21 +1,21 @@
 #include <iostream>
 using namespace std;
-int main(){
-    int a,b,c;
-    cout<<"Nhap 3 so: "<<endl;
-    cin>>a>>b>>c;
-    if(a>b && a>>c){
-        cout<<a<<endl;
 
-    }else if(b>>a && b>>c){
-        cout<<b<<endl;
-    }else{
+int main() {
+    int a, b, c;
 
-        cout<<c<<endl;
+    // Input three numbers
+    cout << "Enter 3 numbers: " << endl;
+    cin >> a >> b >> c;
+
+    // Determine the largest number
+    if (a > b && a > c) {
+        cout << a << endl;
+    } else if (b > a && b > c) {
+        cout << b << endl;
+    } else {
+        cout << c << endl;
     }
-
-
-
 
     return 0;
 }

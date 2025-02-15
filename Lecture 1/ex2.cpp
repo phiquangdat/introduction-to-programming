@@ -2,7 +2,7 @@
 using namespace std;
 int main(){
     char a;
-    cout<<"Nhap chu "<<endl;
+    cout<<"Enter character: "<<endl;
     cin>>a;
     a -= 32;
     cout<<a<<endl;

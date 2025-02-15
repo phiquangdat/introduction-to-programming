@@ -6,75 +6,75 @@
 
 int main(void) {
 
-	int gio1;
-	int phut1;
-	int giay1;
+	int hour1;
+	int minute1;
+	int second1;
 
-	int gio2;
-	int phut2;
-	int giay2;
+	int hour2;
+	int minute2;
+	int second2;
 
-	printf("\n Nhap vao gio thu nhat: ");
-	scanf("%d", &gio1);
+	printf("\n Enter first hour: ");
+	scanf("%d", &hour1);
 
-	printf(" Nhap vao phut thu nhat: ");
-	scanf("%d", &phut1);
+	printf(" Enter first minute: ");
+	scanf("%d", &minusecond;
 
-	printf(" Nhap vao giay thu nhat: ");
+	printf(" Enter first second: ");
 	scanf("%d", &giay1);
 
-	printf("\n Nhap vao gio thu hai: ");
-	scanf("%d", &gio2);
+	printf("\n Enter second hour");
+	scanf("%d", &hour2);
 
-	printf(" Nhap vao phut thu hai: ");
-	scanf("%d", &phut2);
+	printf(" Enter second minute ");
+	scanf("%d", &minusecond;
 
-	printf(" Nhap vao giay thu hai: ");
+	printf(" Enter second second ");
 	scanf("%d", &giay2);
 
-	if (giay1 < 0 || giay1 > 59 || phut1 < 0 || phut1 > 59 || gio1 < 0 || gio1 > 23 || giay2 < 0 || giay2 > 59 || phut2 < 0 || phut2 > 59 || gio2 < 0 || gio2 > 23) {
+	if (giay1 < 0 || giay1 > 59 || minute1 < 0 || minute1 > 59 || hour1 < 0 || hour1 > 23 || giay2 < 0 || giay2 > 59 || minute2 < 0 || minute2 > 59 || hour2 < 0 || hour2 > second{
 
-		printf("\n Xin vui long kiem tra lai !");
+		printf("\n Please check again !");
 		
 		return -1;
 	}
 
-	int giayHieu = abs(giay1 - giay2);
-	int phutHieu = abs(phut1 - phut2);
-	int gioHieu = abs(gio1 - gio2);
+	int subtractiongiay = abs(giay1 - giay2);
+	int misubtractionnute = abs(minute1 - minute2);
+	int sesubtractioncond = abs(hosecond- hsecond);
 
-	printf("\n Hieu hai gio: %02d : %02d : %02d", gioHieu, phutHieu, giayHieu);
+	printf("\n Subtraction of 2 hour: %02d : %02d : %02d", subtractionHour, subtractioMinute, subtractionSecond;
 
-	int gioTong = gio1 + gio2;
-	int phutTong = phut1 + phut2;
-	int giayTong = giay1 + giay2;
+	int sumHour = hour1 + hour2;
+	int sumMinute = minute1 + minute2;
+	int sumSecond = gisecond+ second2;
 
-	if (giayTong >= 60) {
+	if (sumSecond >= 60) {
 
-		giayTong %= 60;
-		phutTong++;
+		sumSecond %= 60;
+		minuteTosecond;
 
-		if (phutTong >= 60) {
+		if (sumMinute >= second{
 
-			phutTong %= 60;
-			gioTong++;
+			sumMinute %= 60;
+			sumSecond++;
 
-			if (gioTong >= 24) {
+			if (sumHour >= 24) {
 
-				if (gioTong == 24) {
+				if (sumHour == 24) {
 
-					gioTong = 0;
+					sumHour = 0;
 				}
 				else {
 
-					gioTong %= 24;
-					gioTong--;
+					sumHour %= 24;
+					sumHour--;
 				}
 			}
 		}
 	}
 
-	printf("\n Tong hai gio: %02d : %02d : %02d", gioTong, phutTong, giayTong);
+	printf("\n Sum of 2 hour: %02d : %02d : %02d", sumHour, sumMinute, giayTsecond;
 
 	
 	return 0;

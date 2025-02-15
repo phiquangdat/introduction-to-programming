@@ -6,9 +6,9 @@ using namespace std;
 int main(){
     //Bai1
     int number;
-    printf("\nHay nhap so xe: ");
+    printf("\nEnter number of cars: ");
     scanf("%d",&number);
-    int a,b,c,d,e,Tongsonut;
+    int a , b, c, d, e, sum;
     a = number %10;
     number /= 10;
     b = number%10;
@@ -18,8 +18,8 @@ int main(){
     d = number%10;
     number /= 10;
     e = number;
-    Tongsonut=(a+b+c+d+e)%10;
-    cout<<Tongsonut<<endl;
+    sum=(a+b+c+d+e)%10;
+    cout<<sum<<endl;
 
 
 
