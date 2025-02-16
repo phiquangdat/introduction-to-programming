@@ -1,31 +1,43 @@
 #include <iostream>
 using namespace std;
-void nhap(int a[],int n){
-    for(int i=0;i<n;i++){
-        cout<<"Nhap phan tu "<<i+1<<endl;
-        cin>>a[i];
+
+// Function to input array elements
+void inputArray(int a[], int n) {
+    for(int i = 0; i < n; i++) {
+        cout << "Enter element " << i + 1 << endl;
+        cin >> a[i];
     }
 }
-void xuat(int a[],int n){
-    for(int i=0;i<n;i++){
-        cout<<a[i]<<"\t";
+
+// Function to output array elements
+void outputArray(int a[], int n) {
+    for(int i = 0; i < n; i++) {
+        cout << a[i] << "\t";
     }
+    cout << endl;
 }
-void kiemtraso(int a[],int n){
-    int dem=0,dem1=0;
-    for(int i=0;i<n;i++){
-        if(a[i]%2==0) dem++;
-        else if(a[i]%2!=0) dem1++;
+
+// Function to check if all elements are even, odd, or mixed
+void checkNumbers(int a[], int n) {
+    int evenCount = 0, oddCount = 0;
+    for(int i = 0; i < n; i++) {
+        if(a[i] % 2 == 0) evenCount++;
+        else oddCount++;
     }
-    if(dem==(n)) cout<<"\nHam chan"<<endl;
-    else if(dem1==(n)) cout<<"\nHam le"<<endl;
-    else cout<<"\nHam binh thuong"<<endl;
+    if(evenCount == n) 
+        cout << "\nAll even numbers" << endl;
+    else if(oddCount == n) 
+        cout << "\nAll odd numbers" << endl;
+    else 
+        cout << "\nMixed numbers" << endl;
 }
+
 int main() {
-    int a[100],n;
-    cin>>n;
-    nhap(a,n);
-    xuat(a,n);
-    kiemtraso(a,n);
+    int a[100], n;
+    cout << "Enter n" << endl;
+    cin >> n;
+    inputArray(a, n);
+    outputArray(a, n);
+    checkNumbers(a, n);
     return 0;
 }

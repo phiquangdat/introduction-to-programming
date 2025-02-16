@@ -1,47 +1,54 @@
 #include <iostream>
-#include <math.h>
+#include <cmath>
 using namespace std;
 #define MAX 100
-int check(int n){
-    int dem=0;
-    for(int i=2;i<=sqrt(n);i++){
-        if(n%i==0) dem++;
+
+// Function to check if a number is prime
+int check(int n) {
+    int count = 0;
+    for(int i = 2; i <= sqrt(n); i++) {
+        if(n % i == 0) count++;
     }
-    if(dem==0) return 1;
+    if(count == 0) return 1;
     return 0;
 }
-void NhapmangSNT(int a[], int &n){
-    cin>>n;
-    int dem=0,i=2,j=0;
-    while(j<n){
-    while(dem<n){
-        if(check(i)){
-            dem++;
-            a[j]=i;
-            j++;
+
+// Function to input an array of prime numbers
+void inputPrimeArray(int a[], int &n) {
+    cin >> n;
+    int count = 0, i = 2, j = 0;
+    while(j < n) {
+        while(count < n) {
+            if(check(i)) {
+                count++;
+                a[j] = i;
+                j++;
+            }
+            i++;
         }
-        i++;
-        
     }
 }
+
+// Function to count the elements in the array that contain the digit y
+int countElementsWithDigit(int a[], int n, int y) {
+    int count = 0, temp = 0;
+    for(int i = 0; i < n; i++) {
+        do {
+            temp = a[i] % 10;
+            if(temp == y) {
+                count++;
+                break;
+            }
+            a[i] /= 10;
+        } while(a[i] > 0);
+    }
+    return count;
 }
-int SoPhanTuChuaY(int a[], int n,int y){
-    int dem=0,temp=0;
-    for(int i=0;i<n;i++){
-    do{
-        temp = a[i]%10;
-        if(temp==y) {dem++;
-        break;}
-        (a[i])/=10;
-    }while(a[i]>0);
-}
-    return dem;
-}
-int main()
-{
-	int a[MAX], n, y;
-	cin >>y;
-	NhapmangSNT(a,n);
-	cout << SoPhanTuChuaY(a, n, y) << endl;;
-	return 0;
+
+int main() {
+    int a[MAX], n, y;
+    cin >> y;
+    inputPrimeArray(a, n);
+    cout << countElementsWithDigit(a, n, y) << endl;
+    return 0;
 }
