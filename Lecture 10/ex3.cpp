@@ -1,97 +1,94 @@
 #include <iostream>
 #include <iomanip>
-#include <math.h>
+#include <cmath>
 using namespace std;
-struct DATHUC{
-    int somu;
-    double heso;
-    int sodathuc;
+
+struct Polynomial {
+    int exponent;
+    double coefficient;
+    int numTerms;
 };
-DATHUC* Nhap(){
-    DATHUC* a;
-    a = new DATHUC[100];
-    cin>>a->sodathuc;
-    for(int i=0;i<a->sodathuc;i++){
-        cin>>(a[i].heso);
-        cin>>(a[i].somu);
+
+Polynomial* input() {
+    Polynomial* a;
+    a = new Polynomial[100];
+    cin >> a->numTerms;
+    for (int i = 0; i < a->numTerms; i++) {
+        cin >> (a[i].coefficient);
+        cin >> (a[i].exponent);
     }
     return a;
 }
-void Xuat(DATHUC& b){
-    DATHUC *temp;
+
+void output(Polynomial& b) {
+    Polynomial *temp;
     temp = &b;
-    int flag=0;
-    int max=0;
-    for(int i=0;i<b.sodathuc;i++){
-        if((*(temp+i)).heso==0){
+    int flag = 0;
+    int max = 0;
+    for (int i = 0; i < b.numTerms; i++) {
+        if ((*(temp + i)).coefficient == 0) {
             flag++;
         }
-    }if(flag==b.sodathuc){
-            cout<<"0";
-        }
-    for(int i=0;i<b.sodathuc;i++){
-        if(((*(temp+i)).somu) >= max && ((*(temp+i)).heso)!=0 ){
-            max = ((*(temp+i)).somu);
+    }
+    if (flag == b.numTerms) {
+        cout << "0";
+    }
+    for (int i = 0; i < b.numTerms; i++) {
+        if (((*(temp + i)).exponent) >= max && ((*(temp + i)).coefficient) != 0) {
+            max = ((*(temp + i)).exponent);
         }
     }
-    for(int i=0;i<b.sodathuc;i++){
-        if(i!=0 && (*(temp+i)).heso>0 && ((*(temp+i)).somu)!=max){
-            cout<<"+";
+    for (int i = 0; i < b.numTerms; i++) {
+        if (i != 0 && (*(temp + i)).coefficient > 0 && ((*(temp + i)).exponent) != max) {
+            cout << "+";
         }
-        if((*(temp+i)).heso==1 ){
-            if((*(temp+i)).somu==1){
-        cout<<"x";
-        }else if((*(temp+i)).somu==0){
-        cout<<(*(temp+i)).heso;
-        }
-        else{
-        cout<<"x^"<<(*(temp+i)).somu;
-        }
-        }
-        else if((*(temp+i)).heso==-1 ){
-            if((*(temp+i)).somu==1){
-        cout<<"-x";
-        }else if((*(temp+i)).somu==0){
-        cout<<(*(temp+i)).heso;
-        }
-        else{
-        cout<<"-x^"<<(*(temp+i)).somu;
-        }
-        }
-        else if((*(temp+i)).heso==0){
+        if ((*(temp + i)).coefficient == 1) {
+            if ((*(temp + i)).exponent == 1) {
+                cout << "x";
+            } else if ((*(temp + i)).exponent == 0) {
+                cout << (*(temp + i)).coefficient;
+            } else {
+                cout << "x^" << (*(temp + i)).exponent;
+            }
+        } else if ((*(temp + i)).coefficient == -1) {
+            if ((*(temp + i)).exponent == 1) {
+                cout << "-x";
+            } else if ((*(temp + i)).exponent == 0) {
+                cout << (*(temp + i)).coefficient;
+            } else {
+                cout << "-x^" << (*(temp + i)).exponent;
+            }
+        } else if ((*(temp + i)).coefficient == 0) {
             continue;
-        }
-        else
-        {if((*(temp+i)).somu==1){
-        cout<<(*(temp+i)).heso<<"x";
-        }else if((*(temp+i)).somu==0){
-        cout<<(*(temp+i)).heso;
-        }
-        else{
-        cout<<(*(temp+i)).heso<<"x^"<<(*(temp+i)).somu;
-        }
+        } else {
+            if ((*(temp + i)).exponent == 1) {
+                cout << (*(temp + i)).coefficient << "x";
+            } else if ((*(temp + i)).exponent == 0) {
+                cout << (*(temp + i)).coefficient;
+            } else {
+                cout << (*(temp + i)).coefficient << "x^" << (*(temp + i)).exponent;
+            }
         }
     }
 }
 
-double TinhDaThuc(DATHUC& B,double x){
+double evaluatePolynomial(Polynomial& B, double x) {
     int i;
-    double kq=0;
-    DATHUC* c;
+    double result = 0;
+    Polynomial* c;
     c = &B;
-    int n=B.sodathuc;
-    for(i=0;i<=n;i++){
-        kq += ((*(c+i)).heso)*pow(x,(*(c+i)).somu);
-
+    int n = B.numTerms;
+    for (i = 0; i <= n; i++) {
+        result += ((*(c + i)).coefficient) * pow(x, (*(c + i)).exponent);
     }
-    return kq;
-
+    return result;
 }
+
 int main() {
-    DATHUC *B; B = Nhap();
-    cout << "Da thuc vua nhap la: "; Xuat(*B);
+    Polynomial *B; B = input();
+    cout << "The entered polynomial is: "; output(*B);
     double x; cin >> x;
-    cout << "\nVoi x=" << x << ", gia tri da thuc la: "
-         << setprecision(2) << fixed << TinhDaThuc(*B, x);
+    cout << "\nFor x = " << x << ", the value of the polynomial is: "
+         << setprecision(2) << fixed << evaluatePolynomial(*B, x);
     return 0;
 }

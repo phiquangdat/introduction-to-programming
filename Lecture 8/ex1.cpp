@@ -4,7 +4,7 @@
 using namespace std;
 #define MAX 300
 
-void DemTieng(char s1[]);
+void countWords(char s1[]);
 int myStrcmp(char s1[], char s2[]);
 int myStrlen(char s[], int k);
 void myStrcpy(char s[], int vt, char s1[], int k);
@@ -18,9 +18,9 @@ int main()
 	char s[MAX];
 	fgets(s,sizeof(s)+1,stdin);
 	if (myStrcmp(s, "") == 0)
-		cout << "Chuoi rong." << endl;
+		cout << "Empty array." << endl;
 	else
-		DemTieng(s);
+		countWords(s);
 		
 	return 0;
 }
@@ -76,7 +76,7 @@ char* myStrcpy(char* destination, const char* source)
     
     return ptr;
 }
-void DemTieng(char s1[]){
+void countWords(char s1[]){
 	char res[100][20];
 	int i=0;
 	char *p;

@@ -3,7 +3,7 @@
 using namespace std;
 #define MAX 300
 
-void DemKyTu(char s[]);
+void countCharacter(char s[]);
 int myStrcmp(char s1[MAX], char s2[MAX]);
 int myStrlen(char s[], int k);
 
@@ -12,9 +12,9 @@ int main()
 	char s[MAX];
 	fgets(s,sizeof(s)+1,stdin);	
 	if (myStrcmp(s, "") == 0)
-		cout << "Chuoi rong." << endl;
+		cout << "Empty array." << endl;
 	else
-		DemKyTu(s);
+		countCharacter(s);
 
 	return 0;
 }int myStrcmp(char s1[], char s2[]){
@@ -26,7 +26,7 @@ int main()
 		k++;
 	return k;
 }
-void DemKyTu(char s[]){
+void countCharacter(char s[]){
 	int a[100],n=0;
 	for(int i=0;i<(int)myStrlen(s,0);i++) {
 	int d=1;

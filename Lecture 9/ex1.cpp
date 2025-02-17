@@ -20,7 +20,7 @@ int main()
             j++;
         }
         j=z;
-        cout<<"Gia tri lon nhat tren cot "<<i<<" la: "<<max<<endl;
+        cout<<"The largest value of column "<<i<<" is: "<<max<<endl;
     }
 	return 0;
 }

@@ -7,7 +7,7 @@ using namespace std;
 int myStrlen(char *s);
 char* myStrcat(char *s1, char *s2);
 
-void Capphat(int *&a)
+void update(int *&a)
 { a = new int[5];
 for(int i=0; i<5; i++) { a[i]=i+1;
 cout<< a[i];

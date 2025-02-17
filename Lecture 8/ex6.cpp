@@ -15,7 +15,7 @@ int main()
 	char s[MAX];
 	fgets(s,sizeof(s)+1,stdin);
 	if (myStrcmp(s, "") == 0)
-		cout << "Chuoi rong." << endl;
+		cout << "Empty array." << endl;
 	else
 	{
 		StringReverse(s);
